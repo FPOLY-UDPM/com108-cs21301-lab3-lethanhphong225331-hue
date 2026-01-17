@@ -10,27 +10,48 @@
  
 #include <stdio.h>
 
-int main(){
-    
-    // Khai báo biến
-    int soDien;
-    float soTien;
+int main() {
+    int kWh;
+    long tien = 0;
 
-    // Nhập dữ liệu
-    printf("Nhap so dien tieu thu: ");
-    scanf("%d", &soDien);
+    printf("Nhap so dien tieu thu (kWh): ");
+    scanf("%d", &kWh);
 
-    // Xử lý, tính toán VÀ Hiển thị kết quả
-    if (soDien <= 50) {
-        soTien = soDien * 1000;
-    } else if (soDien <= 100) {
-        soTien = 50 * 1000 + (soDien - 50) * 1200;
-    } else if (soDien <= 200) {
-        soTien = 50 * 1000 + 50 * 1200 + (soDien - 100) * 1500;
-    } else {
-        soTien = 50 * 1000 + 50 * 1200 + 100 * 1500 + (soDien - 200) * 250;
+    if (kWh < 0) {
+        printf("So dien khong hop le!\n");
+        return 0;
     }
 
-    printf("So tien phai tra la: %.2f\n", soTien);
+    if (kWh <= 50) {
+        tien = kWh * 1678;
+    } else if (kWh <= 100) {
+        tien = 50 * 1678
+             + (kWh - 50) * 1734;
+    } else if (kWh <= 200) {
+        tien = 50 * 1678
+             + 50 * 1734
+             + (kWh - 100) * 2014;
+    } else if (kWh <= 300) {
+        tien = 50 * 1678
+             + 50 * 1734
+             + 100 * 2014
+             + (kWh - 200) * 2536;
+    } else if (kWh <= 400) {
+        tien = 50 * 1678
+             + 50 * 1734
+             + 100 * 2014
+             + 100 * 2536
+             + (kWh - 300) * 2834;
+    } else {
+        tien = 50 * 1678
+             + 50 * 1734
+             + 100 * 2014
+             + 100 * 2536
+             + 100 * 2834
+             + (kWh - 400) * 2927;
+    }
+
+    printf("So tien dien phai dong: %ld dong\n", tien);
+
     return 0;
 }
